@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IranSansWeb", "B Nazanin", "Tahoma", "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-natural-bg: #F5F2ED;
+  --color-natural-sidebar: #FFFFFF;
+  --color-natural-accent: #8C7355;
+  --color-natural-sage: #6B7D6E;
+  --color-natural-text: #3D3D3D;
+  --color-natural-border: #E0DDD7;
+
+  /* Theme variables that switch */
+  --color-app-bg: var(--color-natural-bg);
+  --color-app-sidebar: var(--color-natural-sidebar);
+  --color-app-text: var(--color-natural-text);
+  --color-app-border: var(--color-natural-border);
+  --color-app-accent: var(--color-natural-accent);
+  --color-app-sage: var(--color-natural-sage);
+}
+
+.dark {
+  --color-app-bg: #1A1A1A;
+  --color-app-sidebar: #242424;
+  --color-app-text: #E0E0E0;
+  --color-app-border: #333333;
+  --color-app-accent: #A68B6A;
+  --color-app-sage: #8DA190;
+}
+
+@layer base {
+  html, body {
+    @apply transition-colors duration-300;
+    background-color: var(--color-app-bg);
+    color: var(--color-app-text);
+    direction: rtl;
+  }
+}
+
+/* Date Picker Dark Mode */
+.dark .rmdp-container input {
+  background-color: var(--color-app-bg);
+  color: var(--color-app-text);
+  border-color: var(--color-app-border);
+}
+
+.dark .rmdp-calendar,
+.dark .rmdp-header-values,
+.dark .rmdp-day,
+.dark .rmdp-week-day,
+.dark .rmdp-arrow-container {
+  background-color: var(--color-app-sidebar);
+  color: var(--color-app-text) !important;
+}
+
+.dark .rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
+  background-color: var(--color-app-accent) !important;
+  color: white !important;
+}
+
+.dark .rmdp-day.rmdp-selected span:not(.rmdp-day-hidden) {
+  background-color: var(--color-app-accent) !important;
+  box-shadow: 0 0 3px var(--color-app-accent);
+}
+
+.dark .rmdp-today span {
+  background-color: var(--color-app-sage) !important;
+}
+
+.dark .rmdp-border {
+  border: 1px solid var(--color-app-border) !important;
+}
+
+/* Custom scrollbars for the natural theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-natural-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-natural-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-natural-accent);
+}
